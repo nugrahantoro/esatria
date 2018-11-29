@@ -1,0 +1,17 @@
+D/config////////
+D/examples////////
+D/fonts////////
+D/include////////
+D/tools////////
+/CHANGELOG.TXT////*////
+/LICENSE.TXT////*////
+/README.TXT////*////
+/_tcpdf_config_alt.php////*////
+/composer.json////*////
+/tcpdf.php////*////
+/tcpdf_autoconfig.php////*////
+/tcpdf_barcodes_1d.php////*////
+/tcpdf_barcodes_2d.php////*////
+/tcpdf_import.php////*////
+/tcpdf_include.php////*////
+/tcpdf_parser.php////*////

@@ -1,0 +1,101 @@
+#maincontainer {
+	width: 960px;
+	margin: 0 auto;
+}
+
+#contentwrapper {
+	float: left;
+	width: 100%;
+}
+
+#maincolumn {
+	margin-top: 12px;
+	margin-left: 200px;
+}
+
+.text {
+	margin: 0 0 15px 15px;
+}
+
+#leftcolumn {
+	margin-top: 0px;
+	float: left;
+	width: 200px;
+	margin-left: -960px;
+}
+
+body {
+	background: #fff url(../img/stripe.png) repeat-x scroll 0% 0%;
+	color: #333;
+	margin: 0;
+	padding: 0;
+	font: 16px/1.5em arial, helvetica, verdana, sans-serif;
+}
+
+#header {
+	height: 90px;
+}
+
+#headline1 { 
+	padding: 15px 0 40px 0; 
+}
+
+#headline1 .title { 
+	font: normal 35px/35px georgia, "times new roman", times, serif; 
+	border-bottom: 1px solid #999; 
+	color: #cc0000; 
+	padding-left: 20px; 
+	margin-bottom: 4px; 
+}
+
+* html #headline1 .title { 
+	margin-bottom: 0; 
+}
+
+#headline1 .title em { 
+	color: #5190b2; 
+	font: bold 15px/15px arial verdana, helvetica, sans-serif; 
+	padding-right: 6px;
+}
+
+#headline1 span.subtitle { 
+	background-color: #999; 
+	color: #fff; 
+	font: bold 15px/15px arial verdana, helvetica, sans-serif; 
+	letter-spacing: 4px; 
+	margin: 0 0 20px 198px; 
+	padding: 4px 4px 4px 8px; 
+	text-transform: uppercase; 
+}
+
+#footer {
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	clear: left;
+	font-size: 75%;
+	letter-spacing: 1px;
+	margin: 15px 0 15px 0;
+	width: 100%;
+	text-align: center;
+	padding: 10px 0 5px 0;
+}
+
+
+#maincolumn ul,#leftcolumn ul {
+	margin-left: 20px;
+	padding-left: 0;
+	list-style: none;
+}
+
+#maincolumn li,#leftcolumn li { 
+	padding-left: 18px;
+	background: url(../img/list.png) no-repeat 0% .5em;
+}
+
+#maincolumn a, #maincolumn a:link, #maincolumn a:visited {
+	color: #cc0000;
+}
+
+#maincolumn a:hover {
+	color: #cc6600;
+}

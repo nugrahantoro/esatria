@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, inimum-scale=1, width=device-width">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+    	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!-- Path to your custom app styles-->
+        <!-- <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.ios.min.css"/> -->
+        <link rel ="stylesheet" href="css/framework7-1.4.2.css"/>
+        <link rel="stylesheet" href="css/my-app.css">
+        <link rel="stylesheet" href="plugin/datatables/css/jquery.dataTables.min.css">
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+        <title>e SATRiA</title>
+    </head>
+    <body>
+        <div class="statusbar"></div>
+      	<div class="panel-overlay"></div>
+      	<!-- Right Panel with Cover effect -->
+        <div class="panel panel-right panel-cover" style="background:#000;border-right: 1px solid #c4c4c4;" id="panel">
+	        <div class = "pages navbar-through">
+	          <div data-page = "home" class = "page">
+	          	<div class="panel-top" style="background: #24c0f2;">
+		          <div class="user-frm" style="margin: 0px 65px 0px;">
+		            <img src="img/user3.png">
+		          </div>
+		          <center><p style="color: #fff;" id="buat_nama"></p></center>
+		        </div>
+	            <div class = "list-block">
+	              <ul>
+	                <li>
+	                  <a href = "#" onclick=logout(); class = "item-link">
+	                    <div class = "item-content">
+	                      <div class = "item-inner">
+	                        <div class = "item-title">Logout</div>
+	                      </div>
+	                    </div>
+	                  </a>
+	                </li>
+	                <!-- <li>
+	                  <a href = "#" class = "item-link close-panel">
+	                    <div class = "item-content">
+	                      <div class = "item-inner">
+	                        <div class = "item-title">Back</div>
+	                      </div>
+	                    </div>
+	                  </a>
+	                </li> -->
+	              </ul>         
+	            </div>
+	          </div>     
+	        </div> 
+        </div>
+
+        <div class = "views">
+	        <div class = "view view-main">         
+	            <div class = "navbar">
+	               <!-- <div class = "navbar-inner" style="background: #24c0f2;">
+	                  <div class = "center sliding"><center>DISYANJAK KOTA BANDUNG</center></div>
+	               </div> -->
+	               <div data-page="index" class="navbar-inner" style="background: #24c0f2;">
+	                  <div class="center sliding"><center>DISYANJAK KOTA BANDUNG</center></div>
+	                  <div class="right"><a href="#" data-panel="right" class="open-panel"> <i class="icon icon-bars"></i></a></div>
+	                </div>
+	            </div>
+	            <div class = "pages navbar-through">
+	               <div data-page = "home" class = "page">
+	                  <div class = "page-content" style="background: #c3cdd0;">
+	                     <center><img src="img/logo.png" height="80px" width="160px" style="margin:5% 0px 0px 0px;"></img></center>
+	                     <div class = "list-block">
+	                        <ul>
+	                           <li>
+	                              <a href = "#" data-popup=".popup-pelaporan" class = "item-link open-popup">
+	                                 <div class = "item-content">
+	                                    <div class = "item-inner">
+	                                       <div class = "item-title">Pelaporan Pajak</div>
+	                                    </div>
+	                                 </div>
+	                              </a>
+	                           </li>
+	                           <li>
+	                              <a href = "#" data-popup=".popup-transaksi" class = "item-link open-popup">
+	                                 <div class = "item-content">
+	                                    <div class = "item-inner">
+	                                       <div class = "item-title">Transaksi Harian WP</div>
+	                                    </div>
+	                                 </div>
+	                              </a>
+	                           </li>
+	                           <li>
+	                              <a href = "#" data-popup=".popup-history" class = "item-link open-popup">                                 
+	                                 <div class = "item-content">
+	                                    <div class = "item-inner">
+	                                       <div class = "item-title">History Transaksi</div>
+	                                    </div>
+	                                 </div>
+	                              </a>
+	                           </li>
+	                           <!-- <li>
+	                              <a href = "#" onclick=logout(); class = "item-link">
+	                                 <div class = "item-content">
+	                                    <div class = "item-inner">
+	                                       <div class = "item-title">Logout</div>
+	                                    </div>
+	                                 </div>
+	                              </a>
+	                           </li> -->
+	                           <li>
+	                              <a href = "#" class = "item-link" onclick=keluar();>
+	                                 <div class = "item-content">
+	                                    <div class = "item-inner">
+	                                       <div class = "item-title">Keluar</div>
+	                                    </div>
+	                                 </div>
+	                              </a>
+	                           </li>
+	                        </ul>
+	                     </div>
+	                  </div>
+	                  
+	               </div>
+	            </div>  
+	            <div class="fotter">
+			      e SATRiA V 1.0.0 
+			    </div>    
+	        </div>
+	    </div>
+
+	    <!-- start login -->
+	    <div class="login-screen modal-in" id="m-login">
+	        <div class = "view">
+	            <div class = "page">
+	               <div class = "page-content login-screen-content" style="background: #24c0f2;">
+	                  <center><img src="img/logo.png" height="80px" width="160px" style="margin-top: 100px;"></img></center>             
+	                  <form style="margin-top: 60px; margin-left: 40px; margin-right: 40px;">
+	                     <div class = "list-block">
+	                     	<div class = "title" style="color: #fff;">&nbsp &nbspUsername</div>
+	                        <ul>
+	                           <li class = "item-content">
+	                              <div class = "item-inner">
+	                                 <div class = "item-input">
+	                                    <input type = "text" id="username" name = "username" placeholder = "masukkan username" >
+	                                 </div>
+	                              </div>
+	                           </li>                          
+	                        </ul>
+	                        <br>
+	                        <div class = "title" style="color: #fff;">&nbsp &nbspPassword</div>
+	                        <ul>
+	                        	<li class = "item-content">
+	                              <div class = "item-inner">
+	                                 <div class = "item-input">
+	                                    <input type = "password" id="password" name = "password" placeholder = "masukkan password">
+	                                 </div>
+	                              </div>
+	                           </li>
+	                        </ul>
+	                     </div>                    
+	                     <div class = "list-block">
+	                        <div class="row no-gap">
+	                          <div class="col-50">
+	                            <p><a href = "#" class = "item-link list-button" onclick=login(); style="background: #00CC00; border-color: #00CC00; color: #fff;">Login</a></p>
+	                          </div>
+	                          <div class="col-50">
+	                            <p><a href = "#" class = "item-link list-button" onclick=keluar(); style="background: #FF0000; border-color: #FF0000; color: #fff;">Keluar</a></p>
+	                          </div>
+	                        </div>
+	                     </div>
+	                  </form>               
+	               </div>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- end login -->
+
+	    <!-- start pelaporan pajak -->
+	    <div class="popup popup-pelaporan" id="m-pelaporan">
+	          <div class = "navbar">
+	               <div class = "navbar-inner" style="background: #24c0f2;">
+	                  <div class="left">
+	                    <a href="#" class="link icon-only" onclick=batal_form();>
+	                      <i class="icon icon-back"></i> <span>Back</span>
+	                    </a>
+	                  </div>
+	                  <div class = "title">Pelaporan Pajak</div>
+	                  <div class="right"></div>
+	               </div>
+	          </div>
+	          <div class="content-block">
+	            <form class="list-block">
+	              <ul>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">NPWPD</div>
+	                      <div class="item-input">
+	                        <input type="hidden" id="laporan_id" name="laporan_id" disabled>
+	                        <input type="text" id="npwpd" name="npwpd" disabled>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li> 
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Periode</div>
+	                      <div class="item-input">
+	                          <select name = "periode" id="periode" onchange="get_laporan();">
+	                            <option value="2018-01" selected disabled>-Pilih-</option>
+	                            <option value = "2018-01">Januari 2018</option>
+	                            <option value = "2018-02">Februari 2018</option>
+	                            <option value = "2018-03">Maret 2018</option>
+	                            <option value = "2018-04">April 2018</option>
+	                            <option value = "2018-05">Mei 2018</option>
+	                            <option value = "2018-06">Juni 2018</option>
+	                            <option value = "2018-07">Juli 2018</option>
+	                            <option value = "2018-08">Agustus 2018</option>
+	                            <option value = "2018-09">September 2018</option>
+	                            <option value = "2018-10">Oktober 2018</option>
+	                            <option value = "2018-11">November 2018</option>
+	                            <option value = "2018-12">Desember 2018</option>
+	                          </select>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Klasifikasi</div>
+	                      <div class="item-input">
+	                          <select name = "klasifikasi" id="klasifikasi" disabled>
+	                            <!-- <option value = "1" selected>Pajak Hotel</option>
+	                            <option value = "2">Pajak Restoran</option>
+	                            <option value = "3">Pajak Hiburan</option>
+	                            <option value = "4">Pajak Reklame</option>
+	                            <option value = "5">Pajak PPJ</option>
+	                            <option value = "6">Pajak Parkir</option>
+	                            <option value = "7">Pajak Air Tanah</option>
+	                            <option value = "8">Pajak Bumi dan Bangunan</option>
+	                            <option value = "9">Pajak BPHTB</option> -->
+	                          </select>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Masa Pajak</div>
+	                      <div class="item-input">
+	                        <input type="text" id="masa_pajak_awal" name="masa_pajak_awal" placeholder="Mulai" readonly id="calendar-default" disabled>
+	                        <p>s/d</p>
+	                         <input type="text" id="masa_pajak_akhir" name="masa_pajak_akhir" placeholder="Sampai" readonly id="calendar-default1" disabled>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-input">
+	                        <a href="#" onclick=uploadFile(); data-popup=".popup-upload" class="button open-popup" style="background: #FF9900; border-color: #FF9900; color: #fff; margin-right: 2px;">Upload File</a>
+	                      </div>
+	                      <div class="item-input">
+	                        <a href="#" class="button open-popup" onclick=isiForm(); style="background: #FF9900; border-color: #FF9900; color: #fff;">Isi Form</a>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Nilai Omset</div>
+	                      <div class="item-input">
+	                        <input type="text" id="nilai_omset" name="nilai_omset" placeholder="Rp." disabled>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Pajak Dibayar</div>
+	                      <div class="item-input">
+	                        <input type="text" id="pajak" name="pajak" placeholder="Rp." disabled>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Denda</div>
+	                      <div class="item-input">
+	                        <input type="text" id="denda" name="denda" placeholder="Rp." disabled>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Total Bayar</div>
+	                      <div class="item-input">
+	                        <input type="text" id="total_bayar" name="total_bayar" placeholder="Rp." disabled>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-input">
+	                        <a href="#" class="button active" onclick=submit_form(); style="background: #00CC00; border-color: #00CC00; margin-right: 2px;">Submit</a>
+	                      </div>
+	                      <div class="item-input">
+	                        <a href="#" class="button active1" onclick=batal_form(); style="background: #FF0000; border-color: #FF0000; color: #fff;">Batal</a>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	              </ul>
+	            </form>
+	            <!-- <p><a href="#" class="close-popup">Close popup</a></p> -->
+	          </div>
+	    </div>
+	    <!-- end pelaporan pajak -->
+
+	    <!-- start transaksi harian -->
+	    <div class="popup popup-transaksi" id="m-transaksi">
+	        <div class = "navbar">
+	               <div class = "navbar-inner" style="background: #24c0f2;">
+	                  <div class="left">
+	                    <a href="#" class="link icon-only close-popup">
+	                      <i class="icon icon-back"></i> <span>Back</span>
+	                    </a>
+	                  </div>
+	                  <div class = "title">Transaksi Harian WP</div>
+	                  <div class="right"></div>
+	               </div>
+	        </div>
+	        <div class="content-block">
+	            <div class="data-table card" style="overflow-x:auto; font-size: 14px;">
+	                <table class="display" width="100%" style="border:1px gray solid;">
+	                    <thead>
+	                        <tr>
+	                          <th class="label-cell">No</th>
+		                      <th class="label-cell">Bulan</th>
+		                      <th class="label-cell">Status</th>
+		                      <th class="label-cell">Jumlah Transaksi</th>
+		                      <th class="label-cell">Jumlah Pajak</th>
+	                        </tr>
+	                    </thead>
+	                    <tbody>
+	                    	<tr>
+		                      <td class="label-cell"><center>1</center></td>
+		                      <td class="label-cell"><center>Januari</center></td>
+		                      <td class="label-cell"><center>Belum diverifikas</center></td>
+		                      <td class="label-cell"><center>10000000</center></td>
+		                      <td class="label-cell"><center>1000000</center></td>
+		                    </tr>
+	                    </tbody>
+	                </table>
+	            </div>
+	        </div>  
+	    </div>
+	    <!-- end transaksi harian -->
+
+	    <!-- start history harian -->
+	    <div class="popup popup-history" id="m-history">
+	          <div class = "navbar">
+	               <div class = "navbar-inner" style="background: #24c0f2;">
+	                  <div class="left">
+	                    <a href="#" class="link icon-only close-popup close-picker">
+	                      <i class="icon icon-back"></i> <span>Back</span>
+	                    </a>
+	                  </div>
+	                  <div class = "title">History Transaksi</div>
+	                  <div class="right"></div>
+	               </div>
+	            </div>
+	          <div class="content-block">
+	          	<div class="data-table card" style="overflow-x:auto; font-size: 14px;">
+	                <table class="table paginated" width="850px;" border="1">
+	                    <thead>
+	                        <tr>
+	                          <th class="label-cell">No</th>
+		                      <th class="label-cell">Jenis</th>
+		                      <th class="label-cell">Periode</th>
+		                      <th class="label-cell">Total Transaksi</th>
+		                      <th class="label-cell">Pajak Terutang</th>
+		                      <th class="label-cell">No Bayar</th>
+		                      <th class="label-cell">Sanksi Adm 25%</th>
+		                      <th class="label-cell">Sanksi Adm 2%</th>
+		                      <th class="label-cell">Denda</th>
+		                      <th class="label-cell">No Kuitansi</th>
+	                        </tr>
+	                    </thead>
+	                    <tbody>
+	                    	<tr onclick=cetak();>
+		                      <td class="label-cell"><center>1</center></td>
+		                      <td class="label-cell"><center>SPTPD</center></td>
+		                      <td class="label-cell"><center>Januari 2018</center></td>
+		                      <td class="label-cell"><center>10000000</center></td>
+		                      <td class="label-cell"><center>100000</center></td>
+		                      <td class="label-cell"><center>01</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>101</center></td>
+		                    </tr>
+		                    <tr onclick=cetak();>
+		                      <td class="label-cell"><center>2</center></td>
+		                      <td class="label-cell"><center>SPTPD</center></td>
+		                      <td class="label-cell"><center>Februari 2018</center></td>
+		                      <td class="label-cell"><center>10000000</center></td>
+		                      <td class="label-cell"><center>100000</center></td>
+		                      <td class="label-cell"><center>02</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>102</center></td>
+		                    </tr>
+		                    <tr onclick=cetak();>
+		                      <td class="label-cell"><center>3</center></td>
+		                      <td class="label-cell"><center>SPTPD</center></td>
+		                      <td class="label-cell"><center>Maret 2018</center></td>
+		                      <td class="label-cell"><center>10000000</center></td>
+		                      <td class="label-cell"><center>100000</center></td>
+		                      <td class="label-cell"><center>03</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>103</center></td>
+		                    </tr>
+		                    <tr onclick=cetak();>
+		                      <td class="label-cell"><center>4</center></td>
+		                      <td class="label-cell"><center>SPTPD</center></td>
+		                      <td class="label-cell"><center>April 2018</center></td>
+		                      <td class="label-cell"><center>10000000</center></td>
+		                      <td class="label-cell"><center>100000</center></td>
+		                      <td class="label-cell"><center>04</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>104</center></td>
+		                    </tr>
+		                    <tr onclick=cetak();>
+		                      <td class="label-cell"><center>5</center></td>
+		                      <td class="label-cell"><center>SPTPD</center></td>
+		                      <td class="label-cell"><center>Mei 2018</center></td>
+		                      <td class="label-cell"><center>10000000</center></td>
+		                      <td class="label-cell"><center>100000</center></td>
+		                      <td class="label-cell"><center>05</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>105</center></td>
+		                    </tr>
+		                    <tr onclick=cetak();>
+		                      <td class="label-cell"><center>6</center></td>
+		                      <td class="label-cell"><center>SPTPD</center></td>
+		                      <td class="label-cell"><center>Juni 2018</center></td>
+		                      <td class="label-cell"><center>10000000</center></td>
+		                      <td class="label-cell"><center>100000</center></td>
+		                      <td class="label-cell"><center>06</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>106</center></td>
+		                    </tr>
+		                    <tr onclick=cetak();>
+		                      <td class="label-cell"><center>7</center></td>
+		                      <td class="label-cell"><center>SPTPD</center></td>
+		                      <td class="label-cell"><center>Juli 2018</center></td>
+		                      <td class="label-cell"><center>10000000</center></td>
+		                      <td class="label-cell"><center>100000</center></td>
+		                      <td class="label-cell"><center>07</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>107</center></td>
+		                    </tr>
+		                    <tr onclick=cetak();>
+		                      <td class="label-cell"><center>8</center></td>
+		                      <td class="label-cell"><center>SPTPD</center></td>
+		                      <td class="label-cell"><center>Agustus 2018</center></td>
+		                      <td class="label-cell"><center>10000000</center></td>
+		                      <td class="label-cell"><center>100000</center></td>
+		                      <td class="label-cell"><center>08</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>109</center></td>
+		                    </tr>
+		                    <tr onclick=cetak();>
+		                      <td class="label-cell"><center>9</center></td>
+		                      <td class="label-cell"><center>SPTPD</center></td>
+		                      <td class="label-cell"><center>September 2018</center></td>
+		                      <td class="label-cell"><center>10000000</center></td>
+		                      <td class="label-cell"><center>100000</center></td>
+		                      <td class="label-cell"><center>09</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>109</center></td>
+		                    </tr>
+		                    <tr onclick=cetak();>
+		                      <td class="label-cell"><center>10</center></td>
+		                      <td class="label-cell"><center>SPTPD</center></td>
+		                      <td class="label-cell"><center>Oktober 2018</center></td>
+		                      <td class="label-cell"><center>10000000</center></td>
+		                      <td class="label-cell"><center>100000</center></td>
+		                      <td class="label-cell"><center>10</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>110</center></td>
+		                    </tr>
+		                    <tr onclick=cetak();>
+		                      <td class="label-cell"><center>11</center></td>
+		                      <td class="label-cell"><center>SPTPD</center></td>
+		                      <td class="label-cell"><center>November 2018</center></td>
+		                      <td class="label-cell"><center>10000000</center></td>
+		                      <td class="label-cell"><center>100000</center></td>
+		                      <td class="label-cell"><center>11</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>111</center></td>
+		                    </tr>
+		                    <tr onclick=cetak();>
+		                      <td class="label-cell"><center>12</center></td>
+		                      <td class="label-cell"><center>SPTPD</center></td>
+		                      <td class="label-cell"><center>Desember 2018</center></td>
+		                      <td class="label-cell"><center>10000000</center></td>
+		                      <td class="label-cell"><center>100000</center></td>
+		                      <td class="label-cell"><center>12</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>0</center></td>
+		                      <td class="label-cell"><center>112</center></td>
+		                    </tr>
+	                    </tbody>
+	                </table>
+	                <br>
+	            </div>
+	          </div>
+	    </div>
+	    <!-- end history harian -->
+
+	    <!-- start upload file pelaporan -->
+	    <div class="popup popup-upload" id="m-upload">
+	        <div class = "navbar">
+	            <div class = "navbar-inner" style="background: #24c0f2;">
+	              <div class="left">
+	                <a href="#" data-popup=".popup-upload" class="link icon-only close-popup">
+	                  <i class="icon icon-back"></i> <span>Back</span>
+	                </a>
+	              </div>
+	              <div class = "title">Upload File</div>
+	              <div class="right"></div>
+	            </div>
+	        </div>
+	        <div class="content-block">
+	            <form id="my-form" class="list-block">
+	              <div class = "title">&nbsp &nbsp Pilih File Format Excel</div>
+	              <ul>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-input">
+	                        <input type="text" id="file" name="file" placeholder="test.xlsx" disabled>
+	                        <!-- <img id="myImage" width="100px" height="100px"> -->
+	                      </div>
+	                      <hr>
+	                      <div class="item-title label" style="margin-left: 10px;">
+	                      	<br>
+	                        <a href="#" id="openfile" onclick="getFile();"" class="button active">File</a>
+	                        <br>
+	                        <!-- <a href="#" id="pilihFile" onclick="getGambar();" class="button active">Gambar</a>
+	                        <br> -->
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-input">
+	                        <a href="#" class="button active" onclick=batal_upload(); style="background: #FF9900; border-color: #FF9900; margin-right: 2px;">Batal</a>
+	                      </div>
+	                      <div class="item-input">
+	                        <a href="#" class="button active1" onclick=aksiUpload(); style="background: #00CC00; border-color: #00CC00; color: #fff;">Upload</a>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	              </ul>
+	            </form>
+	        </div>
+	    </div>
+	    <!-- end upload file pelaporan -->
+
+	    <!-- start isi form pelaporan -->
+	    <div class="popup popup-form" id="m-form">
+	        <div class = "navbar">
+	            <div class = "navbar-inner" style="background: #24c0f2;">
+	              <div class="left">
+	                <a href="#" data-popup=".popup-form" class="link icon-only close-popup close-picker">
+	                  <i class="icon icon-back"></i> <span>Back</span>
+	                </a>
+	              </div>
+	              <div class = "title">Isi Form</div>
+	              <div class="right"></div>
+	            </div>
+	        </div>
+	        <div class="content-block">
+	            <form id="my-form" class="list-block">
+	              <ul>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Tanggal</div>
+	                      <div class="item-input">
+	                        <input type="text" id="tanggal" name="tanggal" placeholder="yyyy-mm-dd" readonly>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">No Faktur</div>
+	                      <div class="item-input">
+	                        <input type="text" id="no_faktur" name="no_faktur" placeholder="no faktur">
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Jumlah Faktur</div>
+	                      <div class="item-input">
+	                        <input type="number" id="jml_faktur" name="jml_faktur" placeholder="jumlah faktur">
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Nilai Transaksi</div>
+	                      <div class="item-input">
+	                        <input type="number" id="nilai_transaksi" name="nilai_transaksi" placeholder="nilai transaksi">
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Deskripsi</div>
+	                      <div class="item-input">
+	                        <input type="text" id="deskripsi" name="deskripsi" placeholder="deskripsi">
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-input">
+	                        <a href="#" data-popup=".popup-form" class="button active close-popup close-picker" style="background: #FF9900; border-color: #FF9900; margin-right: 2px;">Selesai</a>
+	                      </div>
+	                      <div class="item-input">
+	                        <a href="#" class="button active1" onclick=simpan_form(); style="background: #00CC00; border-color: #00CC00; color: #fff;">Simpan</a>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	              </ul>
+	            </form>
+	            <div class="data-table card" style="overflow-x:auto; font-size: 14px;">
+	                <table id="form" class="display" width="100%" style="border:1px gray solid;">
+	                    <thead>
+	                        <tr>
+	                          <th>Tanggal</th>
+	                          <th>No Faktur</th>
+	                          <th>Jumlah Faktur</th>
+	                          <th>Nilai Transaksi</th>
+	                          <th>Deskripsi</th>
+	                        </tr>
+	                    </thead>
+	                    <tbody id="load-data-here">
+	                    </tbody>
+	                </table>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- end isi form pelaporan -->
+
+	    <!-- start edit form pelaporan -->
+	    <div class="popup popup-formedit" id="m-form-edit">
+	        <div class = "navbar">
+	            <div class = "navbar-inner" style="background: #24c0f2;">
+	              <div class="left">
+	                <a href="#" data-popup=".popup-formedit" class="link icon-only close-popup">
+	                  <i class="icon icon-back"></i> <span>Back</span>
+	                </a>
+	              </div>
+	              <div class = "title">Edit Form</div>
+	              <div class="right"></div>
+	            </div>
+	        </div>
+	        <div class="content-block">
+	            <form id="my-form" class="list-block">
+	              <ul>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Tanggal</div>
+	                      <div class="item-input">
+	                      	<input type="hidden" id="edt_detail" name="edt_detail">
+	                        <input type="text" id="edt_tanggal" name="edt_tanggal" placeholder="yyyy-mm-dd" readonly>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">No Faktur</div>
+	                      <div class="item-input">
+	                        <input type="text" id="edt_no_faktur" name="edt_no_faktur" placeholder="no faktur">
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Jumlah Faktur</div>
+	                      <div class="item-input">
+	                        <input type="number" id="edt_jml_faktur" name="edt_jml_faktur" placeholder="jumlah faktur">
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Nilai Transaksi</div>
+	                      <div class="item-input">
+	                        <input type="number" id="edt_nilai_transaksi" name="edt_nilai_transaksi" placeholder="nilai transaksi">
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Deskripsi</div>
+	                      <div class="item-input">
+	                        <input type="text" id="edt_deskripsi" name="edt_deskripsi" placeholder="deskripsi">
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-input">
+	                        <a href="#" data-popup=".popup-formedit" class="button active close-popup" style="background: #FF9900; border-color: #FF9900; margin-right: 2px;">Batal</a>
+	                      </div>
+	                      <div class="item-input">
+	                        <a href="#" class="button active1" onclick=simpan_edit(); style="background: #00CC00; border-color: #00CC00; color: #fff;">Simpan</a>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	              </ul>
+	            </form>
+	        </div>
+	    </div>
+	    <!-- end edit form pelaporan -->
+
+	    <!-- start action history harian -->
+	    <div class="popup popup-aksi">
+	          <div class = "navbar">
+	               <div class = "navbar-inner" style="background: #24c0f2;">
+	                  <div class="left">
+	                    <a href="#" class="link icon-only close-popup">
+	                      <i class="icon icon-back"></i> <span>Back</span>
+	                    </a>
+	                  </div>
+	                  <div class = "title">History Transaksi</div>
+	                  <div class="right"></div>
+	               </div>
+	            </div>
+	          <div class="content-block">
+	            <p><a href="#" class="button active">Cetak SPTPD</a></p>
+	            <p><a href="#" class="button active">Cetak SSPD</a></p>
+	            <p><a href="#" class="button active">Rekap Penjualan</a></p>
+	            <p><a href="#" class="button active">Cetak No Bayar</a></p>
+	          </div>
+	    </div>
+	    <!-- end history harian -->
+
+	    <!-- Picker -->
+	    <div class="picker-modal picker-1" id="m-history-aksi">
+	        <div class="toolbar">
+	          <div class="toolbar-inner">
+	            <div class="left"></div>
+	            <div class="right"><a href="#" class="close-picker">Close &nbsp</a></div>
+	          </div>
+	        </div>
+	        <div class="picker-modal-inner">
+	          <div class="content-block">
+	            <div class="list-block">
+	              <ul>
+	                <li><a href="#" class="list-button item-link sptpd">Cetak SPTPD</a></li>
+	                <li><a href="#" class="list-button item-link sspd">Cetak SSPD</a></li>
+	                <li><a href="#" class="list-button item-link rekap">Rekap Penjualan</a></li>
+	                <li><a href="#" class="list-button item-link bayar">Cetak No Bayar</a></li>
+	              </ul>
+	            </div>
+	          </div>
+	        </div>
+	    </div>
+	    <div class="picker-modal picker-form" id="m-form-opsi">
+	        <div class="toolbar">
+	          <div class="toolbar-inner">
+	            <div class="left"></div>
+	            <div class="right"><a href="#" class="close-picker">Close &nbsp</a></div>
+	          </div>
+	        </div>
+	        <div class="picker-modal-inner">
+	          <div class="content-block">
+	            <div class="list-block">
+	              <ul>
+	                <li>
+		              	<a href="#" class="button item-link edit" onclick=editForm();>
+		              		<input type="hidden" id="edt" name="edt">
+		              		Edit
+		              	</a>
+		            </li>
+	              </ul>
+	              <br>
+	              <ul>
+		            <li><a href="#" class="button item-link hapus" onclick=hapus();>Hapus</a></li>
+	              </ul>
+	            </div>
+	          </div>
+	        </div>
+	    </div>
+
+        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/js/framework7.min.js"></script> -->
+        <script type="text/javascript" src="js/framework7-1.4.2.js"></script>
+        <script type="text/javascript" src="plugin/jquery-3.3.1.js"></script>
+      	<script type="text/javascript" src="plugin/datatables/js/jquery.dataTables.min.js"></script>
+      	<script type="text/javascript" src="js/index.js"></script>
+      	<!-- <script type="text/javascript" src="js/upload.js"></script> -->
+        <script type="text/javascript" src="cordova.js"></script>
+
+        <script>
+	        // Here you can initialize the app
+	        var myApp = new Framework7();
+
+	        // If your using custom DOM library, then save it to $$ variable
+	        var $$ = Dom7;
+
+	        // Add the view
+	        var mainView = myApp.addView('.view-main', {
+	            
+	            // enable the dynamic navbar for this view:
+	            dynamicNavbar: true
+	        });
+
+	        var url    = 'http://103.65.237.44/';
+	        var server = url+'integrasi/index.php/esatria/';
+
+	        if(localStorage.getItem("username")==null || localStorage.getItem("password")==null || localStorage.getItem("code")==null){
+	            myApp.loginScreen();
+	        }
+	        else{
+	         	myApp.showPreloader();
+	            setTimeout(function () {
+	              myApp.closeModal('.login-screen', 'true');
+	              startup();
+	              myApp.hidePreloader();
+	              var nama = localStorage.getItem("nama");
+	              document.getElementById("buat_nama").innerHTML = nama;
+	            }, 500);
+	        }
+
+	         // All Function
+	        function login(){
+	            var username = $$('.login-screen input[name = "username"]').val();
+	            var password = $$('.login-screen input[name = "password"]').val();
+	            myApp.showPreloader();
+	            if (username == '') {
+	              myApp.hidePreloader();
+	              myApp.alert('username belum diisi ', '');
+	              $$('.login-screen input[name = "username"]').focus();
+	            }
+	            else if (password == '') {
+	              myApp.hidePreloader();
+	              myApp.alert('password belum diisi ', '');
+	              $$('.login-screen input[name = "password"]').focus();
+	            }
+	            else {
+	              $$.post(server+'login', {username:username, password:password}, 
+	                  function (data){
+	                    var res = JSON.parse(data);
+	                    if(res.code==1){
+	                      myApp.hidePreloader();
+	                      localStorage.setItem('username', username);
+	                      localStorage.setItem('password', password);
+	                      localStorage.setItem('code', res.code);
+	                      localStorage.setItem('token', res.data.token);
+	                      localStorage.setItem('nama', res.data.nama);
+	                      var nama = localStorage.getItem("nama");
+	                      document.getElementById("buat_nama").innerHTML = nama;
+	                      startup();
+	                      // myApp.alert(res.message,'');
+	                      myApp.closeModal('.login-screen');
+	                    }
+	                    else {
+	                      myApp.hidePreloader();
+	                      myApp.alert(res.message,'');
+	                      var user   = document.getElementById('username');
+	                      var pass   = document.getElementById('password');
+		          		  user.value ='';
+		          		  pass.value ='';
+	                    }
+	                  },
+	                  function (xhr, status) {
+	                    myApp.hideIndicator();
+	                    myApp.alert('Koneksi ke Server Bermasalah','');
+	                  }
+	              );
+	            } 
+	        }
+	        function startup(){
+	            $(document).ready( function () {
+	              	var token = localStorage.getItem("token");
+	              	var id    = $$('.popup-pelaporan input[name = "laporan_id"]').val();
+	             	$('table.paginated').each(function() {
+					    var currentPage = 0;
+					    var numPerPage = 10;
+					    var $table = $(this);
+					    $table.bind('repaginate', function() {
+					        $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+					    });
+					    $table.trigger('repaginate');
+					    var numRows = $table.find('tbody tr').length;
+					    var numPages = Math.ceil(numRows / numPerPage);
+					    var $pager = $('<div class="pager"></div>');
+					    for (var page = 0; page < numPages; page++) {
+					        $('<span class="page-number"></span>').text(page + 1).bind('click', {
+					            newPage: page
+					        }, function(event) {
+					            currentPage = event.data['newPage'];
+					            $table.trigger('repaginate');
+					            $(this).addClass('active').siblings().removeClass('active');
+					        }).appendTo($pager).addClass('clickable');
+					    }
+					    $pager.insertBefore($table).find('span.page-number:first').addClass('active');
+					});
+	         	} );
+	        }
+	        function isiForm(){
+	        	var id    = $$('.popup-pelaporan input[name = "laporan_id"]').val();   
+	        	var token = localStorage.getItem("token"); 
+	            myApp.showPreloader();
+	            myApp.popup('.popup-form');
+	            $$.post(server+'get_tabel/'+'/'+token, {laporan_id:id}, 
+		        	function (data){
+		                var res = JSON.parse(data);
+		                if(res.code==1){
+		                  	myApp.hidePreloader();	
+		                  	$("#load-data-here").empty();
+		                  	$.each(res.data.tabel, function(key,val){  
+								$$('#edt').val(val.laporan_detail_id);	
+							    var markup = "<tr onclick=opsi("+val.laporan_detail_id+")>;<td><center>"+val.tanggal+"</center></td><td><center>"+val.no_faktur+"</center></td><td><center>"+val.jml_faktur+"</center></td><td><center>"+val.nilai_transaksi+"</center></td><td>"+val.deskripsi+"</td></tr>";
+	            				$("#load-data-here").append(markup);
+							});
+		                }
+		                else {
+		                   myApp.hidePreloader();
+		                   myApp.alert(res.message,'');
+		                }
+		            },
+		            function (xhr, status) {
+		                myApp.hideIndicator();
+		                myApp.alert('Koneksi ke Server Bermasalah','');
+		            }
+		        );
+	        }
+	        function simpan_form(){
+	            var id        = $$('.popup-pelaporan input[name = "laporan_id"]').val();
+	            var tgl       = $$('.popup-form input[name = "tanggal"]').val();
+	            var no        = $$('.popup-form input[name = "no_faktur"]').val();
+	            var jml       = $$('.popup-form input[name = "jml_faktur"]').val();
+	            var nilai     = $$('.popup-form input[name = "nilai_transaksi"]').val();
+	            var deskripsi = $$('.popup-form input[name = "deskripsi"]').val();
+	            var token   = localStorage.getItem("token");
+	            myApp.showPreloader();
+	            if (id == '') {
+	              myApp.hidePreloader();
+	              myApp.alert('form sebelumnya belum diisi ', '');
+	            }
+	            else if (tgl == '') {
+	              myApp.hidePreloader();
+	              myApp.alert('tanggal belum diisi ', '');
+	              $$('.popup-form input[name = "tgl"]').focus();
+	            }
+	            else if (no == '') {
+	              myApp.hidePreloader();
+	              myApp.alert('no faktur belum diisi ', '');
+	              $$('.popup-form input[name = "no_faktur"]').focus();
+	            }
+	            else if (jml == '') {
+	              myApp.hidePreloader();
+	              myApp.alert('jumlah faktur belum diisi ', '');
+	              $$('.popup-form input[name = "jml_faktur"]').focus();
+	            }
+	            else if (nilai == '') {
+	              myApp.hidePreloader();
+	              myApp.alert('nilai belum diisi ', '');
+	              $$('.popup-form input[name = "nilai_transaksi"]').focus();
+	            }
+	            else if (deskripsi == '') {
+	              myApp.hidePreloader();
+	              myApp.alert('deskripsi belum diisi ', '');
+	              $$('.popup-form input[name = "deskripsi"]').focus();
+	            }
+	            else {
+		            $$.post(server+'save_transaksi'+'/'+token, {laporan_id:id, tanggal:tgl, no_faktur:no, jml_faktur:jml, nilai_transaksi:nilai, deskripsi:deskripsi}, 
+		                function (data){
+		                  var res = JSON.parse(data);
+		                  if(res.code==1){
+		                    myApp.hidePreloader();
+		                    $("#form").show();
+		                    $$('#laporan_id').val(res.data.laporan_id);
+		                    $$('#npwpd').val(res.data.npwpd);
+		                    $$('#masa_pajak_awal').val(res.data.masa_pajak_awal);
+		                    $$('#masa_pajak_akhir').val(res.data.masa_pajak_akhir);
+		                    $$('#nilai_omset').val(res.data.nilai_omset);
+		                    $$('#pajak').val(res.data.pajak);
+		                    $$('#denda').val(res.data.denda);
+		                    $$('#total_bayar').val(res.data.total_bayar);
+		                    var tanggal = document.getElementById('tanggal');
+		              		var no_faktur = document.getElementById('no_faktur');
+		              		var jml_faktur = document.getElementById('jml_faktur');
+		              		var nilai_transaksi = document.getElementById('nilai_transaksi');
+		              		var deskripsi = document.getElementById('deskripsi');
+		              		tanggal.value='';
+		              		no_faktur.value='';
+		              		jml_faktur.value='';
+		              		nilai_transaksi.value='';
+		              		deskripsi.value='';
+		              		$("#load-data-here").empty();
+		              		$.each(res.data.tabel, function(key,val){  
+								$$('#edt').val(val.laporan_detail_id);	
+							    var markup = "<tr onclick=opsi("+val.laporan_detail_id+")>;<td><center>"+val.tanggal+"</center></td><td><center>"+val.no_faktur+"</center></td><td><center>"+val.jml_faktur+"</center></td><td><center>"+val.nilai_transaksi+"</center></td><td>"+val.deskripsi+"</td></tr>";
+	            				$("#load-data-here").append(markup);
+							});
+		                  }
+		                  else {
+		                    myApp.hidePreloader();
+		                    myApp.alert(res.message,'');
+		                  }
+		                },
+		                function (xhr, status) {
+		                  myApp.hideIndicator();
+		                  myApp.alert('Koneksi ke Server Bermasalah','');
+		                }
+		            );
+	            } 
+	        }
+	        function editForm(){
+	        	myApp.closeModal('.picker-form');
+	        	var id        = $$('.popup-pelaporan input[name = "laporan_id"]').val();
+	        	var token   = localStorage.getItem("token");
+	        	var id_detail   = localStorage.getItem("laporan_detail_id");
+	        	myApp.showPreloader();
+	            myApp.popup('.popup-formedit');
+	            $$('#edt_detail').val('');
+			    $$('#edt_tanggal').val('');
+			    $$('#edt_no_faktur').val('');
+			    $$('#edt_jml_faktur').val('');
+			    $$('#edt_nilai_transaksi').val('');
+			    $$('#edt_deskripsi').val('');
+	            $$.post(server+'get_transaksi/'+token, {laporan_detail_id:id_detail, laporan_id:id}, 
+			    	function (data){
+			            var res = JSON.parse(data);
+			            if(res.code==1){
+			                myApp.hidePreloader();
+			                $$('#edt_detail').val(res.data.laporan_detail_id);
+			                $$('#edt_tanggal').val(res.data.tanggal);
+			                $$('#edt_no_faktur').val(res.data.no_faktur);
+			                $$('#edt_jml_faktur').val(res.data.jml_faktur);
+			                $$('#edt_nilai_transaksi').val(res.data.nilai_transaksi);
+			                $$('#edt_deskripsi').val(res.data.deskripsi);
+			            }
+			            else {
+			                myApp.hidePreloader();
+			                myApp.alert(res.message,'');
+			        	}
+			        },
+			        function (xhr, status) {
+			            myApp.hideIndicator();
+			            myApp.alert('Koneksi ke Server Bermasalah','');
+			        }
+			    );
+	        }
+	        function simpan_edit(){
+	        	var id        = $$('.popup-pelaporan input[name = "laporan_id"]').val();
+	            var tgl       = $$('.popup-formedit input[name = "edt_tanggal"]').val();
+	            var no        = $$('.popup-formedit input[name = "edt_no_faktur"]').val();
+	            var jml       = $$('.popup-formedit input[name = "edt_jml_faktur"]').val();
+	            var nilai     = $$('.popup-formedit input[name = "edt_nilai_transaksi"]').val();
+	            var deskripsi = $$('.popup-formedit input[name = "edt_deskripsi"]').val();
+	            var token     = localStorage.getItem("token");
+	            var detail    = localStorage.getItem("laporan_detail_id");
+	            myApp.showPreloader();
+		        $$.post(server+'edit_transaksi'+'/'+token, {laporan_detail_id:detail,laporan_id:id, tanggal:tgl, no_faktur:no, jml_faktur:jml, nilai_transaksi:nilai, deskripsi:deskripsi}, 
+					function (data){
+					    var res = JSON.parse(data);
+					    if(res.code==1){
+					        myApp.hidePreloader();
+					        myApp.closeModal('.popup-formedit');
+					        $("#load-data-here").empty();
+					        $.each(res.data.tabel, function(key,val){  
+								$$('#edt').val(val.laporan_detail_id);
+								var markup = "<tr onclick=opsi("+val.laporan_detail_id+")>;<td><center>"+val.tanggal+"</center></td><td><center>"+val.no_faktur+"</center></td><td><center>"+val.jml_faktur+"</center></td><td><center>"+val.nilai_transaksi+"</center></td><td>"+val.deskripsi+"</td></tr>";
+				            	$("#load-data-here").append(markup);			
+							});
+							$$('#laporan_id').val(res.data.laporan_id);
+		                    $$('#npwpd').val(res.data.npwpd);
+		                    $$('#masa_pajak_awal').val(res.data.masa_pajak_awal);
+		                    $$('#masa_pajak_akhir').val(res.data.masa_pajak_akhir);
+							$$('#nilai_omset').val(res.data.nilai_omset);
+		                    $$('#pajak').val(res.data.pajak);
+		                    $$('#denda').val(res.data.denda);
+		                    $$('#total_bayar').val(res.data.total_bayar);
+					    }
+					    else {
+					        myApp.hidePreloader();
+					        myApp.alert(res.message,'');
+					    }
+					},
+					function (xhr, status) {
+					    myApp.hideIndicator();
+					    myApp.alert('Koneksi ke Server Bermasalah','');
+					}
+				);
+	        }
+	        function hapus(){
+	        	myApp.closeModal('.picker-form');
+	        	var id      = $$('.popup-pelaporan input[name = "laporan_id"]').val();
+	        	var token   = localStorage.getItem("token");
+	        	var detail   = localStorage.getItem("laporan_detail_id");
+	        	myApp.showPreloader();
+	        	$$.post(server+'delete_transaksi/'+token, {laporan_detail_id:detail, laporan_id:id}, 
+			        function (data){
+			            var res = JSON.parse(data);
+			            if(res.code==1){
+			                myApp.hidePreloader();	
+			                $("#load-data-here").empty();
+		                  	$.each(res.data.tabel, function(key,val){  
+								$$('#edt').val(val.laporan_detail_id);	
+							    var markup = "<tr onclick=opsi("+val.laporan_detail_id+")>;<td><center>"+val.tanggal+"</center></td><td><center>"+val.no_faktur+"</center></td><td><center>"+val.jml_faktur+"</center></td><td><center>"+val.nilai_transaksi+"</center></td><td>"+val.deskripsi+"</td></tr>";
+	            				$("#load-data-here").append(markup);
+							});
+			                $$('#npwpd').val(res.data.npwpd);
+				            $$('#masa_pajak_awal').val(res.data.masa_pajak_awal);
+				            $$('#masa_pajak_akhir').val(res.data.masa_pajak_akhir);
+				            $$('#nilai_omset').val(res.data.nilai_omset);
+				            $$('#pajak').val(res.data.pajak);
+				            $$('#denda').val(res.data.denda);
+				            $$('#total_bayar').val(res.data.total_bayar);
+			            }
+			            else {
+			                myApp.hidePreloader();
+			                myApp.alert(res.message,'');
+			            }
+			        },
+			        function (xhr, status) {
+			            myApp.hideIndicator();
+			            myApp.alert('Koneksi ke Server Bermasalah','');
+			        }
+			  	);
+	        }       
+	        function uploadFile(){
+	            $$('.open-upload').on('click', function () {
+	              myApp.popup('.popup-upload');
+	            })
+	        }
+	        function aksiUpload(){
+	        	var id    = $$('.popup-pelaporan input[name = "laporan_id"]').val();
+	        	var token = localStorage.getItem("token");
+	        	var path  = localStorage.getItem("path");
+	            var file = $$('.popup-upload input[name = "file"]').val();
+	            if (id == '') {
+	            	myApp.alert('periode masih kosong', '');
+	            }
+	            else if (file == '') {
+	              myApp.hidePreloader();
+	              myApp.alert('file masih kosong', '');
+	              $$('.popup-upload input[name = "file"]').focus();
+	            }
+	            else {
+	                myApp.showPreloader();
+	              	var imageURI = path;
+	
+					var options = new FileUploadOptions();
+					options.fileKey = "myfile";
+					var filename =imageURI.substr(imageURI.lastIndexOf('/') + 1);
+					options.fileName = filename;
+					options.mimeType = "application/vnd.ms-excel";
+					options.headers = {
+						Connection: "close"
+					};
+					var params = new Object();
+					options.params = params;
+					options.chunkedMode = false;
+					var ft = new FileTransfer();
+					var urlUpload = server+'prosesupload'+'/'+token+'/'+id; // url webservice untuk upload
+					ft.upload(imageURI, urlUpload, win, fail, options);
+				    function win(r) {
+						console.log("Code = " + r.responseCode);
+						console.log("Response = " + r.response);
+						console.log("Sent = " + r.bytesSent);
+						
+						var res = JSON.parse(r.response);
+						if (res.code == 1) {
+							myApp.hidePreloader();
+			                $$('#masa_pajak_awal').val(res.data.masa_pajak_awal);
+			                $$('#masa_pajak_akhir').val(res.data.masa_pajak_akhir);
+			                $$('#nilai_omset').val(res.data.nilai_omset);
+			                $$('#pajak').val(res.data.pajak);
+			                $$('#denda').val(res.data.denda);
+			                $$('#total_bayar').val(res.data.total_bayar);
+			                var fileinput = document.getElementById('file');
+			              	fileinput.value='';
+							myApp.closeModal('.popup-upload');
+							}
+						else {
+							alert(res.message);
+							myApp.hidePreloader();
+						}
+						
+					}
+					function fail(error) {
+						alert(error.code);
+						console.log("upload error source " + error.source);
+						console.log("upload error target " + error.target);
+					}
+	            }
+	        }
+	        function downloadFile() {
+	           var fileURL = "///storage/emulated/0/DCIM/myFile"
+	           var uri = encodeURI("http://posttestserver.com/post.php");
+	           var options = new FileUploadOptions();
+	           options.fileKey = "file";
+	           options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
+	           options.mimeType = "text/plain";
+	           
+	           var headers = {'headerParam':'headerValue'};
+	           options.headers = headers;
+	           var ft = new FileTransfer();
+	           ft.upload(fileURL, uri, onSuccess, onError, options);
+
+	           function onSuccess(r) {
+	              console.log("Code = " + r.responseCode);
+	              console.log("Response = " + r.response);
+	              console.log("Sent = " + r.bytesSent);
+	           }
+
+	           function onError(error) {
+	              alert("An error has occurred: Code = " + error.code);
+	              console.log("upload error source " + error.source);
+	              console.log("upload error target " + error.target);
+	           }
+	        }
+	        function submit_form() {
+	        	var id        = $$('.popup-pelaporan input[name = "laporan_id"]').val();
+	        	var npwpd     = $$('.popup-pelaporan input[name = "npwpd"]').val();
+	        	var awal      = $$('.popup-pelaporan input[name = "masa_pajak_awal"]').val();
+	        	var akhir     = $$('.popup-pelaporan input[name = "masa_pajak_akhir"]').val();
+	        	var omset     = $$('.popup-pelaporan input[name = "nilai_omset"]').val();
+	        	var pajak     = $$('.popup-pelaporan input[name = "pajak"]').val();
+	        	var denda     = $$('.popup-pelaporan input[name = "denda"]').val();
+	        	var total     = $$('.popup-pelaporan input[name = "total_bayar"]').val();
+	            var periode   = $$('#periode').val();
+	            var token     = localStorage.getItem("token");
+	            myApp.showPreloader();
+	            if (periode == '') {
+	              myApp.alert('periode belum diisi ', '');
+	              myApp.hidePreloader();
+	              $$('.popup-pelaporan input[name = "periode"]').focus();
+	            }
+	            else if(npwpd == '') {
+	              myApp.alert('npwpd masih kosong ', '');
+	              myApp.hidePreloader();
+	            }
+	            else if(awal == '') {
+	              myApp.alert('masa pajak masih kosong ', '');
+	              myApp.hidePreloader();
+	            }
+	            else if(omset == '') {
+	              myApp.alert('nilai omset masih kosong ', '');
+	              myApp.hidePreloader();
+	            }
+	            else if(pajak == '') {
+	              myApp.alert('pajak dibayar masih kosong ', '');
+	              myApp.hidePreloader();
+	            }
+	            else if(denda == '') {
+	              myApp.alert('denda masih kosong ', '');
+	              myApp.hidePreloader();
+	            }
+	            else if(total == '') {
+	              myApp.alert('total_bayar masih kosong ', '');
+	              myApp.hidePreloader();
+	            }
+	            else {
+	              $$.post(server+'save_laporan'+'/'+token, {laporan_id:id}, 
+		                function (data){
+		                  var res = JSON.parse(data);
+		                  if(res.code==1){
+		                    myApp.hidePreloader();
+		                    $("#form").hide();
+		                    myApp.alert('Laporan berhasil ditambah','');
+		                    var npwpd 			 = document.getElementById('npwpd');
+		              		var masa_pajak_awal  = document.getElementById('masa_pajak_awal');
+		              		var masa_pajak_akhir = document.getElementById('masa_pajak_akhir');
+		              		var nilai_omset 	 = document.getElementById('nilai_omset');
+		              		var pajak 			 = document.getElementById('pajak');
+		              		var denda 			 = document.getElementById('denda');
+		              		var total_bayar 	 = document.getElementById('total_bayar');
+		              		npwpd.value 		 ='';
+		              		masa_pajak_awal.value='';
+		              		masa_pajak_akhir.value='';
+		              		nilai_omset.value 	 ='';
+		              		pajak.value 		 ='';
+		              		denda.value 		 ='';
+		              		total_bayar.value 	 ='';
+		              		myApp.closeModal('.popup-pelaporan');
+		                  }
+		                  else {
+		                    myApp.hidePreloader();
+		                    myApp.alert(res.message, 'laporan id :', id,'');
+		                  }
+		                },
+		                function (xhr, status) {
+		                  myApp.hideIndicator();
+		                  myApp.alert('Koneksi ke Server Bermasalah','');
+		                }
+		          );
+	            } 
+	        }
+	        function batal_form(){
+	        	var npwpd 			 = document.getElementById('npwpd');
+		        var masa_pajak_awal  = document.getElementById('masa_pajak_awal');
+		        var masa_pajak_akhir = document.getElementById('masa_pajak_akhir');
+		        var nilai_omset 	 = document.getElementById('nilai_omset');
+		        var pajak 			 = document.getElementById('pajak');
+		        var denda 			 = document.getElementById('denda');
+		        var total_bayar 	 = document.getElementById('total_bayar');
+		        var file 			 = document.getElementById('file');
+		        npwpd.value 		   ='';
+		        masa_pajak_awal.value  ='';
+		        masa_pajak_akhir.value ='';
+		        nilai_omset.value      ='';
+		        pajak.value            ='';
+		        denda.value            ='';
+		        total_bayar.value      ='';
+		        file.value 		       ='';
+		        $("#form").hide();
+		        myApp.closeModal('.popup-pelaporan');
+	        }
+	        function batal_upload(){
+		        var file   = document.getElementById('file');
+		        file.value ='';
+		        myApp.closeModal('.popup-upload');
+	        }
+	        function logout(){
+	            myApp.confirm('Yakin akan logout?', '', function () {
+	              var username = document.getElementById('username');
+	              var password = document.getElementById('password');
+		          username.value='';
+		          password.value='';
+	              localStorage.clear();
+	              location.reload();
+	            });
+	        }  
+	        function keluar(){
+	            myApp.confirm('Apakah yakin ingin keluar aplikasi?', '', function () {
+	              navigator.app.exitApp();
+	            });
+	        }
+	        function opsi(id){
+	        	localStorage.setItem('laporan_detail_id', id);
+	        	myApp.popup('.picker-form');
+	        }
+	        function cetak(){
+	        	myApp.popup('.picker-1');
+	        }
+	        function onBackKeyDown(){
+			    var mlogin 	   = $$('#m-login').css("display");
+			    var mpelaporan = $$('#m-pelaporan').css("display");
+			    var mtransaksi = $$('#m-transaksi').css("display");
+			    var mhistory   = $$('#m-history').css("display");
+			    var mupload    = $$('#m-upload').css("display");
+			    var mform      = $$('#m-form').css("display");
+			    var mformedit  = $$('#m-form-edit').css("display");
+			    var mhistoryaksi = $$('#m-history-aksi').css("display");
+			    var mformopsi  = $$('#m-form-opsi').css("display");
+			    var cpage 	   = mainView.activePage;
+			    var cpagename  = cpage.name;
+			    console.log(cpagename);
+			    if(mlogin == 'block'){
+			        myApp.confirm('Apakah yakin ingin keluar aplikasi?', '', function () {
+		              navigator.app.exitApp();
+		            });
+			    } else if(mpelaporan == 'block'){
+			        myApp.closeModal('#m-pelaporan');
+			        return false;
+			    } else if (mtransaksi == 'block'){
+			        myApp.closeModal('#m-transaksi');
+			        return false;
+			    } else if (mhistory == 'block'){
+			        myApp.closeModal('#m-history');
+			        myApp.closeModal('#m-history-aksi');
+			        return false;
+			    } else if (mupload == 'block') {
+			        myApp.closeModal('#m-upload');
+			        return false;
+			    } else if (mform == 'block') {
+			        myApp.closeModal('#m-form');
+			        myApp.closeModal('#m-form-opsi');
+			        return false;
+			    } else if (mformedit == 'block') {
+			        myApp.closeModal('#m-form-edit');
+			        return false;
+			    } else if (($$('#leftpanel').hasClass('active')) || ($$('#panel').hasClass('active'))) { // #leftpanel and #rightpanel are id of both panels.
+			    	myApp.closePanel();
+			        return false;
+			    } else if (cpagename == 'home') {
+				    myApp.confirm('Apakah yakin ingin keluar aplikasi?', '', function () {
+		              navigator.app.exitApp();
+		            });
+			    } 
+			    else {
+			      	mainView.router.back();
+			    }
+		    }
+
+	        // All get
+	        // function getGambar() {
+	        //     // myApp.showIndicator();
+	        //     var input = document.getElementById('file');
+	        //     var image = document.getElementById('myImage');
+	        //     navigator.camera.getPicture(function(imageData){
+	        //       if(imageData!=''){
+	        //         image.style.display = 'block';
+	        //         image.src = "data:image/jpeg;base64," + imageData;
+	        //         input.value = imageData;
+	        //         if(image.src == "data:image/jpeg;base64," + imageData){
+	        //           myApp.hideIndicator();
+	        //         }
+	        //       }
+	        //     }, onFail, setOptions(''));
+	        // }
+	        function get_laporan() {
+	        	var id    = $$('.popup-pelaporan input[name = "laporan_id"]').val();
+	            var periode = $$('#periode').val();
+	            var token   = localStorage.getItem("token");
+	            myApp.showIndicator();
+	            $$.post(server+'get_laporan/'+token, {periode:periode}, 
+	              function (data){
+	                var res = JSON.parse(data);
+	                if(res.code==1){
+	                  myApp.hideIndicator();
+	                   $$('#laporan_id').val(res.data.laporan_id);
+	                   $$('#npwpd').val(res.data.npwpd);
+	                   $$('#masa_pajak_awal').val(res.data.masa_pajak_awal);
+	                   $$('#masa_pajak_akhir').val(res.data.masa_pajak_akhir);
+	                   $$('#nilai_omset').val(res.data.nilai_omset);
+	                   $$('#pajak').val(res.data.pajak);
+	                   $$('#denda').val(res.data.denda);
+	                   $$('#total_bayar').val(res.data.total_bayar);
+	                }
+	                else {
+	                  myApp.hidePreloader();
+	                  myApp.alert(res.message,'');
+	                }
+	              },
+	              function (xhr, status) {
+	                myApp.hideIndicator();
+	                myApp.alert('Koneksi ke Server Bermasalah','');
+	              }
+	            );
+	        }
+
+	        function getFile() {
+	        	var input = document.getElementById('file');
+				var options = {};
+				fileChooser.open(function(imgData){
+					var filename =imgData.substr(imgData.lastIndexOf('/') + 1);
+					if (imgData != '') {
+						// alert(imgData);
+						input.value = filename;
+						localStorage.setItem('path', imgData);
+					}
+				}, error);
+				function error(msg){
+					console.log(msg);
+				}
+			}
+
+	        // Pelaporan
+	        $$('.open-pelaporan').on('click', function () {
+	          myApp.popup('.popup-pelaporan');
+	        });
+
+	        // Transaksi
+	        $$('.open-transaksi').on('click', function () {
+	          myApp.popup('.popup-transaksi');
+	        });
+
+	        // History
+	        $$('.open-history').on('click', function () {
+	          myApp.popup('.popup-history');
+	        });
+	        $$('.open-aksi').on('click', function () {
+	          myApp.popup('.popup-aksi');
+	        })
+
+	        // Kalender
+	        var calendarDefault = myApp.calendar({
+	            input: '#calendar-default',
+	        });    
+	        var calendarDefault1 = myApp.calendar({
+	            input: '#calendar-default1',
+	        });    
+	        var calendarDefault1 = myApp.calendar({
+	            input: '#tanggal',
+	        }); 
+
+	        // All Modal
+	        $$('.sptpd').on('click', function () {
+	            myApp.alert('cetak masih dalam pengembangan!', 'SPTPD');
+	        });
+	        $$('.sspd').on('click', function () {
+	            myApp.alert('cetak masih dalam pengembangan!', 'SSPD');
+	        });
+	        $$('.rekap').on('click', function () {
+	            myApp.alert('rekap masih dalam pengembangan!', 'Rekap Penjualan');
+	        });
+	        $$('.bayar').on('click', function () {
+	            myApp.alert('cetak masih dalam pengembangan!', 'Cetak No Bayar');
+	        });
+      	</script>
+    </body>
+</html>

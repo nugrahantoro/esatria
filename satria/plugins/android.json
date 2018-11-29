@@ -1,0 +1,30 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "id.go.bandung.disyanjak"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "id.go.bandung.disyanjak"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "id.go.bandung.disyanjak"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "id.go.bandung.disyanjak"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "id.go.bandung.disyanjak"
+    },
+    "cordova-plugin-filechooser": {
+      "PACKAGE_NAME": "id.go.bandung.disyanjak"
+    }
+  },
+  "dependent_plugins": {}
+}

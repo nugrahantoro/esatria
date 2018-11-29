@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, inimum-scale=1, width=device-width">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+    	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <!-- Path to your custom app styles-->
+        <!-- <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/css/framework7.ios.min.css"/> -->
+        <link rel ="stylesheet" href="css/framework7-1.4.2.css"/>
+       
+        <link rel="stylesheet" href="css/my-app.css">
+        <link rel="stylesheet" href="plugin/datatables/css/jquery.dataTables.min.css">
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+        <title>e SATRiA</title>
+    </head>
+    <body>
+        <div class="statusbar"></div>
+      	<div class="panel-overlay"></div>
+      	<!-- Right Panel with Cover effect -->
+        <div class="panel panel-right panel-cover" style="background:#000;border-right: 1px solid #c4c4c4;" id="panel">
+	        <div class = "pages navbar-through">
+	          <div data-page = "home" class = "page">
+	          	<div class="panel-top" style="background: #24c0f2;">
+		          <div class="user-frm" style="margin: 0px 65px 0px;">
+		            <img src="img/user3.png">
+		          </div>
+		          <center><p style="color: #fff;" id="buat_nama"></p></center>
+		        </div>
+	            <div class = "list-block">
+	              <ul>
+	              	<!-- <li>
+	                  <a href = "#" data-popup=".popup-profile" class = "item-link open-popup">
+	                    <div class = "item-content">
+	                      <div class = "item-inner">
+	                        <div class = "item-title">My Profile</div>
+	                      </div>
+	                    </div>
+	                  </a>
+	                </li> -->
+	                <li>
+	                  <a href = "#" onclick=download_manual(); class = "item-link">
+	                    <div class = "item-content">
+	                      <div class = "item-inner">
+	                        <div class = "item-title">Download Manual</div>
+	                      </div>
+	                    </div>
+	                  </a>
+	                </li>
+	                <li>
+	                  <a href = "#" onclick=logout(); class = "item-link">
+	                    <div class = "item-content">
+	                      <div class = "item-inner">
+	                        <div class = "item-title">Logout</div>
+	                      </div>
+	                    </div>
+	                  </a>
+	                </li>
+	              </ul>         
+	            </div>
+	          </div>     
+	        </div> 
+        </div>
+
+        <div class = "views">
+	        <div class = "view view-main">         
+	            <div class = "navbar">
+	               <div data-page="index" class="navbar-inner">
+	                  <div class="center sliding"><center>DISYANJAK KOTA BANDUNG</center></div>
+	                  <div class="right"><a href="#" data-panel="right" class="open-panel"> <i class="icon icon-bars"></i></a></div>
+	                </div>
+	            </div>
+	            <div class = "pages navbar-through" style="margin-top: 50px;">
+	               <div data-page = "home" class = "page">
+	                  <div class = "page-content" style="background: #fff;">
+	                     <center style="background: #c3cdd0;"><img src="img/logo.png" height="80px" width="160px"></img></center>
+	                     <div class = "list-block" style="margin: 28px 0;">
+	                        <ul>
+	                           <li>
+	                              <a href = "#" class = "item-link" onclick=pelaporan();>
+	                                 <div class = "item-content">
+	                                    <div class = "item-inner">
+	                                       <div class = "item-title">Pelaporan Pajak</div>
+	                                    </div>
+	                                 </div>
+	                              </a>
+	                           </li>
+	                           <li>
+	                              <a href = "#" class = "item-link" onclick=transaksi_harian();>
+	                                 <div class = "item-content">
+	                                    <div class = "item-inner">
+	                                       <div class = "item-title">Transaksi Harian WP</div>
+	                                    </div>
+	                                 </div>
+	                              </a>
+	                           </li>
+	                            <li>
+	                              <a href = "#" onclick=history(); class = "item-link">                                 
+	                                 <div class = "item-content">
+	                                    <div class = "item-inner">
+	                                       <div class = "item-title">History Transaksi</div>
+	                                    </div>
+	                                 </div>
+	                              </a>
+	                           </li>
+	                           <li>
+	                              <a href = "#" onclick=logout(); class = "item-link">
+	                                 <div class = "item-content">
+	                                    <div class = "item-inner">
+	                                       <div class = "item-title">Logout</div>
+	                                    </div>
+	                                 </div>
+	                              </a>
+	                           </li>
+	                           <li>
+	                              <a href = "#" class = "item-link" onclick=keluar();>
+	                                 <div class = "item-content">
+	                                    <div class = "item-inner">
+	                                       <div class = "item-title">Keluar</div>
+	                                    </div>
+	                                 </div>
+	                              </a>
+	                           </li>
+	                        </ul>
+	                     </div>
+	                  </div>
+	                  
+	               </div>
+	            </div>  
+	            <div class="fotter">
+			      e SATRiA V 1.0.0 
+			    </div>    
+	        </div>
+	    </div>
+
+	    <!-- start login -->
+	    <div class="login-screen modal-in" id="m-login">
+	        <div class = "view">
+	            <div class = "page">
+	               <div class = "page-content login-screen-content" style="background: #24c0f2;">
+	                  <center><img src="img/logo.png" height="80px" width="160px" style="margin-top: 100px;"></img></center>             
+	                  <form style="margin-top: 60px; margin-left: 40px; margin-right: 40px;">
+	                     <div class = "list-block">
+	                     	<div class = "title" style="color: #fff;">&nbsp &nbspUsername</div>
+	                        <ul>
+	                           <li class = "item-content">
+	                              <div class = "item-inner">
+	                                 <div class = "item-input">
+	                                    <input type = "text" id="username" name = "username" placeholder = "masukkan username" >
+	                                 </div>
+	                              </div>
+	                           </li>                          
+	                        </ul>
+	                        <br>
+	                        <div class = "title" style="color: #fff;">&nbsp &nbspPassword</div>
+	                        <ul>
+	                        	<li class = "item-content">
+	                              <div class = "item-inner">
+	                                 <div class = "item-input">
+	                                    <input type = "password" id="password" name = "password" placeholder = "masukkan password">
+	                                 </div>
+	                              </div>
+	                           </li>
+	                        </ul>
+	                     </div>                    
+	                     <div class = "list-block">
+	                        <div class="row no-gap">
+	                          <div class="col-50">
+	                            <p><a href = "#" class = "item-link list-button" onclick=login(); style="background: #00CC00; border-color: #00CC00; color: #fff;">Login</a></p>
+	                          </div>
+	                          <div class="col-50">
+	                            <p><a href = "#" class = "item-link list-button" onclick=keluar(); style="background: #FF0000; border-color: #FF0000; color: #fff;">Keluar</a></p>
+	                          </div>
+	                        </div>
+	                     </div>
+	                  </form>               
+	               </div>
+	            </div>
+	        </div>
+	    </div>
+	    <!-- end login -->
+
+	    <!-- start pelaporan pajak -->
+	    <div class="popup popup-pelaporan" id="m-pelaporan">
+	        <div class = "view view-main">         
+	            <div class = "navbar">
+	               <div data-page="index" class="navbar-inner">
+	               	  <div class="left">
+		                <a href="#" data-popup=".popup-pelaporan" class="link icon-only close-popup">
+		                  <i class="icon icon-back"></i> <span></span>
+		                </a>
+		              </div>
+	                  <div class="center sliding"><center>Pelaporan Pajak</center></div>
+	                </div>
+	            </div>
+	            <div class = "pages navbar-through">
+	               <div data-page = "home" class = "page">
+	                  <div class = "page-content" style="background: #fff;">
+	                     <form class="list-block">
+				              <ul>
+				                <li>
+				                  <div class="item-content">
+				                    <div class="item-inner">
+				                      <div class="item-title label">NPWPD</div>
+				                      <div class="item-input">
+				                        <input type="hidden" id="laporan_id" name="laporan_id" disabled>
+				                        <input type="text" id="npwpd" name="npwpd" disabled>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </li> 
+				                <li>
+				                  <div class="item-content">
+				                    <div class="item-inner">
+				                      <div class="item-title label">Periode</div>
+				                      <div class="item-input">
+				                          <select name = "periode" id="periode" onchange="get_laporan();">
+				                            <option selected disabled>-Pilih-</option>
+				                          </select>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </li>
+				                <li>
+				                  <div class="item-content">
+				                    <div class="item-inner">
+				                      <div class="item-title label">Klasifikasi</div>
+				                      <div class="item-input">
+				                          <select name = "klasifikasi" id="klasifikasi">
+				                          	<option selected disabled>-Pilih-</option>
+				                          </select>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </li>
+				                <li id="ini_rincian">
+				                  <div class="item-content">
+				                    <div class="item-inner">
+				                      <div class="item-title label">Rincian</div>
+				                      <div class="item-input">
+				                          <select name = "rincian" id="rincian" onchange="get_rincian();">
+				                          	<!-- <option selected disabled>-Pilih-</option> -->
+				                          </select>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </li>
+				                <li>
+				                  <div class="item-content">
+				                    <div class="item-inner">
+				                      <div class="item-title label">Masa Pajak</div>
+				                      <div class="item-input">
+				                        <input type="text" id="masa_pajak_awal" name="masa_pajak_awal" placeholder="Mulai" readonly id="calendar-default" disabled>
+				                        <input type="hidden" id="start_period" name="start_period" readonly disabled>
+				                        <p>s/d</p>
+				                         <input type="text" id="masa_pajak_akhir" name="masa_pajak_akhir" placeholder="Sampai" readonly id="calendar-default1" disabled>
+				                         <input type="hidden" id="end_period" name="end_period" readonly disabled>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </li>
+				                <li>
+				                  <div class="item-content">
+				                    <div class="item-inner">
+				                      <div class="item-input">
+				                        <a href="#" class="button" onclick=uploadFile(); style="background: #FF9900; border-color: #FF9900; color: #fff; margin-right: 2px;">Upload File</a>
+				                      </div>
+				                      <div class="item-input">
+				                        <a href="#" class="button" onclick=isiForm(); style="background: #FF9900; border-color: #FF9900; color: #fff;">Isi Form</a>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </li>
+				                <li>
+				                  <div class="item-content">
+				                    <div class="item-inner">
+				                      <div class="item-title label">Nilai Omset</div>
+				                      <div class="item-input">
+				                        <input type="text" id="nilai_omset" name="nilai_omset" placeholder="Rp." disabled>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </li>
+				                <li>
+				                  <div class="item-content">
+				                    <div class="item-inner">
+				                      <div class="item-title label">Pajak Dibayar</div>
+				                      <div class="item-input">
+				                        <input type="text" id="pajak" name="pajak" placeholder="Rp." disabled>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </li>
+				                <li>
+				                  <div class="item-content">
+				                    <div class="item-inner">
+				                      <div class="item-title label">Denda</div>
+				                      <div class="item-input">
+				                        <input type="text" id="denda" name="denda" placeholder="Rp." disabled>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </li>
+				                <li>
+				                  <div class="item-content">
+				                    <div class="item-inner">
+				                      <div class="item-title label">Total Bayar</div>
+				                      <div class="item-input">
+				                        <input type="text" id="total_bayar" name="total_bayar" placeholder="Rp." disabled>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </li>
+				                <li>
+				                  <div class="item-content">
+				                    <div class="item-inner">
+				                      <div class="item-input">
+				                        <a href="#" class="button active" onclick=konfirmasi(); style="background: #00CC00; border-color: #00CC00; margin-right: 2px;">Submit</a>
+				                      </div>
+				                      <div class="item-input">
+				                        <a href="#" class="button active1" onclick=batal_form(); style="background: #FF0000; border-color: #FF0000; color: #fff;">Batal</a>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </li>
+				              </ul>
+				         </form>
+	                  </div>
+	                  
+	               </div>
+	            </div>  
+	        </div>
+	    </div>
+	    <!-- end pelaporan pajak -->
+
+	    <!-- start isi form pelaporan -->
+	    <div class="popup popup-form" id="m-form">
+	    	<div class = "view view-main"> 
+		        <div class = "navbar">
+		            <div class = "navbar-inner">
+		              <div class="left">
+		                <a href="#" onclick=back_form(); class="link icon-only close-picker">
+		                  <i class="icon icon-back"></i> <span></span>
+		                </a>
+		              </div>
+		              <div class="center sliding">Pelaporan Harian</div>
+		              <div class="right"></div>
+		            </div>
+				    <div class="content-block" style="background: #fff; margin-top: 80px; padding-bottom: 20px;">
+						<div class="row">
+							<a href="#" class="col button active1" onclick=selesai_form(); style="background: #00CC00; border-color: #00CC00; color: #fff; width: 49%;">Selesai</a>
+							<a href="#" class="col button active close-picker" onclick=batal_transaksi(); style="background: #FF9900; border-color: #FF9900; width: 49%;">Batal</a>
+						</div>
+					</div>
+		        </div>
+		        <div class = "pages navbar-through" style="margin-top: 90px;">
+		            <div data-page = "home" class = "page">
+		                <div class = "page-content" style="background: #fff; margin-top: -40px;">
+				            <div class="data-table card" style="overflow-x:auto; font-size: 15px; margin-top: 30px;">
+				                <table id="form" class="table paginated2" width="800px">
+				                    <thead style="background: #CCCCCC;">
+				                        <tr style="height: 45px;">
+				                          <th width="100px">Tanggal</th>
+				                          <th width="150px">No Faktur Awal</th>
+				                          <th width="150px">No Faktur Akhir</th>
+				                          <th width="100px">Jml Faktur</th>
+				                          <th width="100px">Jml Penjualan</th>
+				                          <th width="150px">Deskripsi</th>
+				                        </tr>
+				                    </thead>
+				                    <tbody id="load-data-here" style="background: #fff; color: black;">
+				                    </tbody>
+				                </table>
+				            </div>
+				            <hr>
+				            <div class="block" style="margin-top: 20px; margin-left: 15px; margin-right: 15px; margin-bottom: 20px;">
+								<div class="row">
+									<a href="#" class="col button active1" onclick=selesai_form(); style="background: #00CC00; border-color: #00CC00; color: #fff; width: 49%;">Selesai</a>
+									<a href="#" class="col button active close-picker" onclick=batal_transaksi(); style="background: #FF9900; border-color: #FF9900; width: 49%;">Batal</a>
+								</div>
+							</div>
+		                </div>	                  
+		            </div>
+		        </div>
+		    </div>
+	    </div>
+	    <!-- end isi form pelaporan -->
+
+	    <!-- start edit form pelaporan -->
+	    <div class="popup popup-formedit" id="m-form-edit">
+	        <div class = "navbar">
+	            <div class = "navbar-inner">
+	              <div class="left">
+	                <a href="#" onclick=back_edit(); class="link icon-only">
+	                  <i class="icon icon-back"></i> <span></span>
+	                </a>
+	              </div>
+	              <div class="center sliding" style="margin-left: -20px;">Edit Form</div>
+	              <div class="right"></div>
+	            </div>
+	        </div>
+	        <div class="content-block">
+	            <form id="my-form" class="list-block">
+	              <ul>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Tanggal</div>
+	                      <div class="item-input">
+	                      	<input type="hidden" id="edt_detail" name="edt_detail">
+	                        <input type="text" id="edt_tanggal" name="edt_tanggal" placeholder="yyyy-mm-dd" readonly disabled>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">No Faktur Awal</div>
+	                      <div class="item-input">
+	                        <input type="text" id="edt_no_faktur_awal" name="edt_no_faktur_awal" placeholder="no faktur awal">
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">No Faktur Akhir</div>
+	                      <div class="item-input">
+	                        <input type="text" id="edt_no_faktur_akhir" name="edt_no_faktur_akhir" placeholder="no faktur akhir">
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Jumlah Faktur</div>
+	                      <div class="item-input">
+	                        <input type="number" id="edt_jml_faktur" name="edt_jml_faktur" placeholder="jumlah faktur">
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Nilai Transaksi</div>
+	                      <div class="item-input">
+	                        <input type="number" id="edt_jml_penjualan" name="edt_jml_penjualan" placeholder="nilai transaksi">
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-title label">Deskripsi</div>
+	                      <div class="item-input">
+	                        <input type="text" id="edt_deskripsi" name="edt_deskripsi" placeholder="deskripsi">
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-input">
+	                        <a href="#" class="button active" onclick=batal_edit(); style="background: #FF9900; border-color: #FF9900; margin-right: 2px;">Batal</a>
+	                      </div>
+	                      <div class="item-input">
+	                        <a href="#" class="button active1" onclick=simpan_edit(); style="background: #00CC00; border-color: #00CC00; color: #fff;">Simpan</a>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	              </ul>
+	            </form>
+	        </div>
+	    </div>
+	    <!-- end edit form pelaporan -->
+
+	    <!-- start upload file pelaporan -->
+	    <div class="popup popup-upload" id="m-upload">
+	        <div class = "navbar">
+	            <div class = "navbar-inner">
+	              <div class="left">
+	                <a href="#" onclick=back_upload(); class="link icon-only">
+	                  <i class="icon icon-back"></i> <span></span>
+	                </a>
+	              </div>
+	              <div class="center sliding" style="margin-left: -30px;">Upload File</div>
+	              <div class="right"></div>
+	            </div>
+	        </div>
+	        <div class="content-block">
+	            <form id="my-form" class="list-block">
+	              <div class = "title">&nbsp &nbsp Pilih File Format Excel</div>
+	              <ul>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-input">
+	                        <input type="text" id="file" name="file" placeholder="test.xlsx" disabled>
+	                      </div>
+	                      <hr>
+	                      <div class="item-title label" style="margin-left: 10px;">
+	                      	<br>
+	                        <a href="#" id="openfile" onclick="getFile();"" class="button active">File</a>
+	                        <br>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	                <li>
+	                  <div class="item-content">
+	                    <div class="item-inner">
+	                      <div class="item-input">
+	                        <a href="#" class="button active" onclick=batal_upload(); style="background: #FF9900; border-color: #FF9900; margin-right: 2px;">Batal</a>
+	                      </div>
+	                      <div class="item-input">
+	                        <a href="#" class="button active1" onclick=aksiUpload(); style="background: #00CC00; border-color: #00CC00; color: #fff;">Upload</a>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </li>
+	              </ul>
+	            </form>
+	        </div>
+	    </div>
+	    <!-- end upload file pelaporan -->
+
+	    <!-- Konfirmasi Popup -->
+		<div class="popup popup-konfirmasi" id="m-konfirmasi">
+			<div class = "navbar">
+	        	<div data-page="index" class="navbar-inner">
+	        		<p style="width: 100%; text-align: center;"><b>DISYANJAK KOTA BANDUNG</b></p>
+	                <!-- <div class="center sliding"><center>DISYANJAK KOTA BANDUNG</center></div> -->
+	            </div>
+	        </div>
+		    <div class="content-block">
+		      <center><img src="img/peringatan.png" height="80px" width="80px"></img></center>
+		      <h3><center>Konfirmasi</center></h3>
+		      <p><center>Wajib Pajak yang terhormat, Anda Melaporkan pajak daerah untuk :</center></p>
+		      <table class="tabel card" style="width: 95%; padding: 10px; background: #f5f5f5;">
+		      	<thead>
+		      		<tr>
+		      			<td width="100px;">NPWPD</td>
+		      			<td> : </td>
+		      			<td id="k_npwpd"></td>
+		      		</tr>
+		      		<tr>
+		      			<td width="100px;">Merk Dagang</td>
+		      			<td> : </td>
+		      			<td id="m_dagang"></td>
+		      		</tr>
+		      		<tr>
+		      			<td width="100px;">Klasifikasi</td>
+		      			<td> : </td>
+		      			<td id="k_klasifikasi"></td>
+		      		</tr>
+		      		<tr>
+		      			<td width="100px;">Masa Pajak</td>
+		      			<td> : </td>
+		      			<td id="k_masa"></td>
+		      		</tr>
+		      		<tr>
+		      			<td width="100px;">Pajak Pokok</td>
+		      			<td> : </td>
+		      			<td id="k_pajak"></td>
+		      		</tr>
+		      		<tr>
+		      			<td width="100px;">Denda</td>
+		      			<td> : </td>
+		      			<td id="k_denda"></td>
+		      		</tr>
+		      		<tr>
+		      			<td width="190;">Jumlah Pajak yang harus dibayar</td>
+		      			<td> : </td>
+		      			<td id="k_jml"></td>
+		      		</tr>
+		      	</thead>
+		      </table>
+		      <p><center>Apakah anda yakin akan mengirim laporan dimaksud?</center></p>
+		      <div class = "list-block">
+	                <div class="row no-gap">
+	                    <div class="col-50">
+	                        <p><a href="#" class = "item-link list-button" onclick=submit_form(); style="background: #00CC00; border-color: #00CC00; color: #fff;">Ya</a></p>
+	                    </div>
+	                    <div class="col-50">
+	                        <p><a href="#" class = "item-link list-button" onclick=batal_konfirmasi(); style="background: #FF0000; border-color: #FF0000; color: #fff;">Tidak</a></p>
+	                    </div>
+	                </div>
+	          </div>
+		    </div>
+		</div>
+		<!-- end konfirmasi -->
+
+		 <!-- start transaksi harian -->
+	    <div class="popup popup-transaksi" id="m-transaksi">
+	    	<div class = "view view-main"> 
+		        <div class = "navbar">
+		               <div class = "navbar-inner">
+		                  <div class="left">
+		                    <a href="#" onclick=back_transaksi(); class="link icon-only">
+		                      <i class="icon icon-back"></i> <span></span>
+		                    </a>
+		                  </div>
+		                  <div class = "center sliding">Transaksi Harian WP</div>
+		                  <div class="right"></div>
+		               </div>
+		        </div>
+		        <div class="content-block" style="margin: 1px; margin-top: 85px; padding: 0px;">
+		            <div class="data-table" style="overflow-x:auto; font-size: 15px;">
+		                <table class="table paginated1" width="900px" style="border:0px gray solid;">
+		                    <thead style="background: #CCCCCC;">
+		                        <tr style="height: 45px;">
+			                      <th width="150px">Bulan</th>
+			                      <th width="210px">Masa Pajak</th>
+			                      <th width="200px">Status</th>
+			                      <th width="200px">Jumlah Transaksi (Rp)</th>
+			                      <th width="200px">Jumlah Pajak (Rp)</th>
+		                        </tr>
+		                    </thead>
+		                    <tbody id="transaksi_disini" style="background: #fff; color: black;">
+		                    </tbody>
+		                </table>
+		                <br>
+		            </div>
+		            <h4 style="margin: 4px;" id="jud">Detail Transaksi Harian :</h4> <br>
+		        </div> 
+		        <div class = "pages navbar-through">
+		            <div data-page = "home" class = "page" style="background: #fff;">
+		                <div class = "page-content" style="background: #fff; margin-top: -30px; height: 65%;">
+				            <div class="data-table" id="detail" style="overflow-x:auto; font-size: 15px; margin: 1px;">
+				                <table id="form" class="table paginated2" width="490px" style="border:0px gray solid;">
+				                    <thead style="background: #CCCCCC;">
+				                        <tr style="height: 45px;">
+				                          <th width="80px">Tgl Transaksi</th>
+				                          <th width="80px">No Faktur</th>
+				                          <th width="80px">Deskripsi</th>
+				                          <th width="80px">Nilai Transaksi</th>
+				                        </tr>
+				                    </thead>
+				                    <tbody id="load-detail" style="background: #fff; color: black;">
+				                    </tbody>
+				                </table>
+				            </div>
+		                </div>	                  
+		            </div>
+		        </div>
+		    </div>
+	    </div>
+	    <!-- end transaksi harian -->
+
+	    <!-- start history harian -->
+	    <div class="popup popup-history" id="m-history">
+	    	<div class = "view view-main"> 
+		        <div class = "navbar">
+		               <div class = "navbar-inner">
+		                  <div class="left">
+		                    <a href="#" class="link icon-only close-popup close-picker">
+		                      <i class="icon icon-back"></i> <span></span>
+		                    </a>
+		                  </div>
+		                  <div class = "center sliding">History Transaksi</div>
+		                  <div class="right"></div>
+		               </div>
+		        </div>
+		        <div class = "pages navbar-through" style="margin-top: 70px;">
+		            <div data-page = "home" class = "page" style="background: #fff;">
+		                <div class = "page-content" style="background: #fff; margin-top: -30px; height: 95%;">
+				            <div class="data-table" id="sini" style="overflow-x:auto; font-size: 15px; margin-left: 5px; margin-right: 5px;">
+				                <table class="paginated"  width="1500px;" style="border:0px gray solid;">
+				                    <thead style="background: #CCCCCC;">
+				                        <tr style="height: 45px; border-bottom: 1px solid #111;">
+					                      <th width="10px">No</th>
+					                      <th width="100px">Jenis</th>
+					                      <th width="200px">Periode</th>
+					                      <th width="150px">Tanggal Lapor</th>
+					                      <th width="150px">Total Transaksi</th>
+					                      <th width="150px">Pajak Terutang</th>
+					                      <th width="150px">No Bayar</th>
+					                      <th width="200px">Sanksi Adm 25%</th>
+					                      <th width="200px">Sanksi Adm 2%</th>
+					                      <th width="100px">Denda</th>
+					                      <th width="250px">No Kuitansi</th>
+					                      <th width="200px">Jumlah Bayar (Rp)</th>
+					                      <th width="150px">Keterangan</th>
+				                        </tr>
+				                    </thead>
+				                    <tbody id="history_disini" style="background: #fff; color: black;">
+				                    </tbody>
+				                </table>
+				            </div>
+		                </div>	                  
+		            </div>
+		        </div>
+		    </div>
+	    </div>
+	    <!-- end history harian -->
+
+	    <div class="picker-modal picker-1" id="m-history-aksi">
+	        <div class="toolbar">
+	          <div class="toolbar-inner">
+	            <div class="left"></div>
+	            <div class="right"><a href="#" class="close-picker">Close &nbsp</a></div>
+	          </div>
+	        </div>
+	        <div class="picker-modal-inner">
+	          <div class="content-block">
+	            <div class="list-block">
+	              <ul>
+	                <li>
+		              	<a href="#" class="button item-link" onclick=cetak_sptpd();>
+		              		<input type="hidden" id="c_sptpd" name="c_sptpd" readonly>Cetak SPTPD
+		              	</a>
+		            </li>
+	              </ul>
+	              <br>
+	              <ul>
+		            <li>
+		            	<a href="#" class="button item-link" onclick=cetak_sspd();>
+		            		<input type="hidden" id="c_sspd" name="c_sspd" readonly>Cetak SSPD
+		            	</a>
+		            </li>
+	              </ul>
+	              <br>
+	              <ul>
+		            <li>
+		            	<a href="#" class="button item-link" onclick=cetak_rekap();>
+		            		Rekap Penjualan
+		            		<input type="hidden" id="c_end_period" name="end_period" readonly>
+		            		<input type="text" id="c_start_period" name="start_period" readonly>
+		            		<input type="hidden" id="ref_vat_type_dtl_id" name="ref_vat_type_dtl_id" readonly>
+		            		<input type="hidden" id="dat_cust_account_id" name="dat_cust_account_id" readonly>
+		            	</a>
+		            </li>
+	              </ul>
+	              <br>
+	              <ul>
+		            <li>
+		            	<a href="#" class="button item-link" onclick=cetak_bayar();>
+		            		<input type="hidden" id="c_bayar" name="c_bayar" readonly>Cetak No Bayar
+		            	</a>
+		            </li>
+	              </ul>
+	            </div>
+	          </div>
+	        </div>
+	    </div>
+		<div class="picker-modal picker-form" id="m-form-opsi">
+	        <div class="toolbar">
+	          <div class="toolbar-inner">
+	            <div class="left"></div>
+	            <div class="right"><a href="#" class="close-picker">Close &nbsp</a></div>
+	          </div>
+	        </div>
+	        <div class="picker-modal-inner">
+	          <div class="content-block">
+	            <div class="list-block">
+	              <ul>
+	                <li>
+		              	<a href="#" class="button item-link edit" onclick=editForm();>
+		              		<input type="hidden" id="edt" name="edt">
+		              		Edit
+		              	</a>
+		            </li>
+	              </ul>
+	              <br>
+	              <ul>
+		            <li><a href="#" class="button item-link hapus" onclick=hapus(); id="hapus">Hapus</a></li>
+	              </ul>
+	            </div>
+	          </div>
+	        </div>
+	    </div>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.4.2/js/framework7.min.js"></script>
+        <script type="text/javascript" src="js/framework7-1.4.2.js"></script>
+        <script type="text/javascript" src="plugin/jquery-3.3.1.js"></script>
+      	<script type="text/javascript" src="js/e-satria.js"></script>
+      	<script type="text/javascript" src="js/index.js"></script>
+      	<!-- <script type="text/javascript" src="js/upload.js"></script> -->
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>
